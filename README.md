@@ -1,4 +1,4 @@
 cmd
 ===
 
-This project provides applications for commonly used tasks.
+This project provides applications for commonly performed tasks.
