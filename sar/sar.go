@@ -7,38 +7,55 @@ import "log"
 import "os"
 import "regexp"
 
+// flagInPlace specifies if a file should be edited in place.
+var flagInPlace bool
+
 func init() {
-   flag.Parse()
    flag.Usage = usage
+   flag.BoolVar(&flagInPlace, "i", false, "edit file in place.")
+   flag.Parse()
 }
 
 func usage() {
-   fmt.Fprintf(os.Stderr, "usage: %s SEARCH REPLACE [FILE]\n", os.Args[0])
+   fmt.Fprintf(os.Stderr, "Usage: %s SEARCH REPLACE [FILE]\n", os.Args[0])
    flag.PrintDefaults()
 }
 
 func main() {
-   var input string
-   switch flag.NArg() {
-   case 2:
-      buf, err := ioutil.ReadAll(os.Stdin)
-      if err != nil {
-         log.Fatalln(err)
-      }
-      input = string(buf)
-   case 3:
-      buf, err := ioutil.ReadFile(flag.Arg(2))
-      if err != nil {
-         log.Fatalln(err)
-      }
-      input = string(buf)
-   default:
+   if flag.NArg() < 2 {
       flag.Usage()
       return
+   } else if flag.NArg() == 2 {
+      // input from: stdin
+      input, err := ioutil.ReadAll(os.Stdin)
+      if err != nil {
+         log.Fatalln(err)
+      }
+      output := sar(string(input), flag.Arg(0), flag.Arg(1))
+      fmt.Print(output)
+   } else {
+      // input from: FILE
+      input, err := ioutil.ReadFile(flag.Arg(2))
+      if err != nil {
+         log.Fatalln(err)
+      }
+      output := sar(string(input), flag.Arg(0), flag.Arg(1))
+      if flagInPlace {
+         fi, err := os.Stat(flag.Arg(2))
+         if err != nil {
+            log.Fatalln(err)
+         }
+         err = ioutil.WriteFile(flag.Arg(2), []byte(output), fi.Mode())
+         if err != nil {
+            log.Fatalln(err)
+         }
+      } else {
+         fmt.Print(output)
+      }
    }
-   fmt.Print(sar(input, flag.Arg(0), flag.Arg(1)))
 }
 
+// sar uses regexp to search and replace provided input.
 func sar(input, search, replace string) (output string) {
    regSearch := regexp.MustCompile(search)
    output = regSearch.ReplaceAllString(input, replace)

@@ -10,8 +10,8 @@ import "sort"
 import "github.com/mewkiz/pkg/bufioutil"
 
 func init() {
-   flag.Parse()
    flag.Usage = usage
+   flag.Parse()
 }
 
 func usage() {
