@@ -7,8 +7,8 @@ standard output. If no file is provided it will read from standard input.
 Installation
 ------------
 
-    $ go get github.com/mewkiz/rawsort
-    $ go install github.com/mewkiz/rawsort
+    $ go get github.com/mewkiz/cmd/rawsort
+    $ go install github.com/mewkiz/cmd/rawsort
 
 Usage
 -----
