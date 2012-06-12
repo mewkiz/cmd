@@ -13,7 +13,7 @@ Installation
 Usage
 -----
 
-    $  echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "`printf "3\n2\n1"`"
+    $ echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "`printf "3\n2\n1"`"
     // input:
     // Testing
     // 1
@@ -26,9 +26,9 @@ Usage
     // 2
     // 1
 
-   $ sar mew$ kiz file.txt
-   // file content (file.txt):
-   // mewmew
-   //
-   // output:
-   // mewkiz
+    $ sar mew$ kiz file.txt
+    // file content (file.txt):
+    // mewmew
+    //
+    // output:
+    // mewkiz
