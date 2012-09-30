@@ -8,7 +8,6 @@ Installation
 ------------
 
     $ go get github.com/mewkiz/cmd/sar
-    $ go install github.com/mewkiz/cmd/sar
 
 Usage
 -----

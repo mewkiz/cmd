@@ -11,7 +11,6 @@ Installation
 ------------
 
     $ go get github.com/mewkiz/cmd/godiff
-    $ go install github.com/mewkiz/cmd/godiff
 
 Usage
 -----
