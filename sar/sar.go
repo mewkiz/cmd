@@ -13,7 +13,6 @@ var flagInPlace bool
 func init() {
 	flag.Usage = usage
 	flag.BoolVar(&flagInPlace, "i", false, "edit file in place.")
-	flag.Parse()
 }
 
 func usage() {
@@ -22,6 +21,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	if flag.NArg() < 2 {
 		flag.Usage()
 		return

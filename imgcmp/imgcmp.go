@@ -10,7 +10,6 @@ import "github.com/mewkiz/pkg/imgutil"
 
 func init() {
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -21,6 +20,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	if flag.NArg() != 2 {
 		flag.Usage()
 		return

@@ -9,11 +9,8 @@ import "os/exec"
 import "path"
 import "strings"
 
-func init() {
-	flag.Parse()
-}
-
 func main() {
+	flag.Parse()
 	for _, srcPath := range flag.Args() {
 		err := godiff(srcPath)
 		if err != nil {

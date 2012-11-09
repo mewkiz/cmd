@@ -8,7 +8,6 @@ import "os"
 
 func init() {
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -16,6 +15,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	for _, rawIp := range flag.Args() {
 		err := RevDNS(rawIp)
 		if err != nil {
