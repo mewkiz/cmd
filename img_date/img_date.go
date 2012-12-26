@@ -122,6 +122,9 @@ func GetRename(origPath string) (rename *Rename, err error) {
 			}
 			return rename, nil
 		}
+		if n < len(block) {
+			break
+		}
 		// Make sure we don't miss a date between two blocks.
 		_, err = fr.Seek(-maxDateLen, os.SEEK_CUR)
 		if err != nil {
