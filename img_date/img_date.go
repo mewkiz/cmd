@@ -91,7 +91,7 @@ type Rename struct {
 	origPath string
 	date     time.Time
 	// suffix is used to prevent duplicate file names.
-	suffix   string
+	suffix string
 }
 
 // GetRename returns the rename information, based on the embeded date
@@ -118,7 +118,7 @@ func GetRename(origPath string) (rename *Rename, err error) {
 		if found {
 			rename = &Rename{
 				origPath: origPath,
-				date: date,
+				date:     date,
 			}
 			return rename, nil
 		}
@@ -139,7 +139,7 @@ func GetRename(origPath string) (rename *Rename, err error) {
 // file name will be replaced by a date representation. A suffix might be added
 // to avoid duplicate file names.
 func (rename *Rename) String() string {
-	date := rename.date.Format("2006-01-02 15:04:05")
+	date := rename.date.Format("2006-01-02 - 15.04.05")
 	var suffix string
 	if len(rename.suffix) > 0 {
 		suffix = ", " + rename.suffix
@@ -157,7 +157,7 @@ func (rename *Rename) SanityCheck() (err error) {
 	if year < 1980 {
 		return fmt.Errorf("ancient date (before 1980): %v.", rename.date)
 	}
-	if year > time.Now().Year() + 1 {
+	if year > time.Now().Year()+1 {
 		return fmt.Errorf("future date: %v.", rename.date)
 	}
 	return nil
