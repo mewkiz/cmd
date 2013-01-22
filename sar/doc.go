@@ -1,3 +1,5 @@
+/*
+
 sar uses regexp to search and replace on provided input provided.
 
 Installation:
@@ -39,5 +41,5 @@ Examples:
 	// output:
 	//    mewkiz
 
-
+*/
 package documentation
