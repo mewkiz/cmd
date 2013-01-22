@@ -12,11 +12,11 @@ var flagInPlace bool
 
 func init() {
 	flag.Usage = usage
-	flag.BoolVar(&flagInPlace, "i", false, "edit file in place.")
+	flag.BoolVar(&flagInPlace, "i", false, "Edit file in place.")
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: %s SEARCH REPLACE [FILE]\n", os.Args[0])
+	fmt.Fprintln(os.Stderr, "Usage: sar [OPTION]... SEARCH REPLACE [FILE]")
 	flag.PrintDefaults()
 }
 

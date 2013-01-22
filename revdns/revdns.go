@@ -12,6 +12,7 @@ func init() {
 
 func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: revdns IP...")
+	fmt.Fprintln(os.Stderr, "Perform reverse DNS lookups on provided IP-addresses.")
 }
 
 func main() {
@@ -31,7 +32,7 @@ func RevDNS(rawIp string) (err error) {
 		return err
 	}
 	for _, name := range names {
-		fmt.Println("name:", name)
+		fmt.Printf("%s = %s\n", rawIp, name)
 	}
 	return nil
 }

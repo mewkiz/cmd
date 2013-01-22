@@ -18,12 +18,12 @@ var flagInsane bool
 
 func init() {
 	flag.BoolVar(&flagForce, "f", false, "Force rename.")
-	flag.BoolVar(&flagInsane, "insane", false, "Sanity checks are for the weak.")
+	flag.BoolVar(&flagInsane, "insane", false, "Disable sanity checks.")
 	flag.Usage = usage
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "Usage: img_date [FILE]...")
+	fmt.Fprintln(os.Stderr, "Usage: img_date [OPTION]... [FILE]...")
 	fmt.Fprintln(os.Stderr, "Rename files based on their embeded date information.")
 	fmt.Fprintln(os.Stderr)
 	flag.PrintDefaults()
@@ -32,10 +32,8 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "  Force rename all png files:")
 	fmt.Fprintln(os.Stderr, "    img_date -f *.png")
 	fmt.Fprintln(os.Stderr)
-	fmt.Fprintln(os.Stderr, "  Rename all jpg files:")
-	fmt.Fprintln(os.Stderr, "    img_date *.jpg > mv.sh")
-	fmt.Fprintln(os.Stderr, "    # manually verify that mv.sh looks accurate.")
-	fmt.Fprintln(os.Stderr, "    chmod +x mv.sh && ./mv.sh && rm mv.sh")
+	fmt.Fprintln(os.Stderr, "  Print rename shell script:")
+	fmt.Fprintln(os.Stderr, "    img_date *.jpg")
 }
 
 func main() {
