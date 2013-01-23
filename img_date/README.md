@@ -20,7 +20,7 @@ Documentation
 
 Documentation provided by GoDoc.
 
-- [img_date][]:
+- [img_date][]: Rename files based on their embeded date information.
 
 [img_date]: http://godoc.org/github.com/mewkiz/cmd/img_date
 

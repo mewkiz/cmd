@@ -13,7 +13,7 @@ Documentation
 
 Documentation provided by GoDoc.
 
-- [sar][]:
+- [sar][]: Use regexp to search and replace on provided input.
 
 [sar]: http://godoc.org/github.com/mewkiz/cmd/sar
 

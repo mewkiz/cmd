@@ -13,7 +13,7 @@ Documentation
 
 Documentation provided by GoDoc.
 
-- [imgcmp][]:
+- [imgcmp][]: Compare two images and displays an error message if they differ.
 
 [imgcmp]: http://godoc.org/github.com/mewkiz/cmd/imgcmp
 

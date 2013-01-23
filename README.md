@@ -11,11 +11,13 @@ Documentation provided by GoDoc.
 - [imgcmp][]: Compare two images and displays an error message if they differ.
 - [img_date][]: Rename files based on their embeded date information.
 - [revdns][]: Perform reverse DNS lookups on provided IP-addresses.
+- [revsh][]: Establish a reverse shell connection using two modes.
 - [sar][]: Use regexp to search and replace on provided input.
 
 [imgcmp]: http://godoc.org/github.com/mewkiz/cmd/imgcmp
 [img_date]: http://godoc.org/github.com/mewkiz/cmd/img_date
 [revdns]: http://godoc.org/github.com/mewkiz/cmd/revdns
+[revsh]: http://godoc.org/github.com/mewkiz/cmd/revsh
 [sar]: http://godoc.org/github.com/mewkiz/cmd/sar
 
 public domain

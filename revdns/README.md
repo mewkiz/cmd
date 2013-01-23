@@ -13,7 +13,7 @@ Documentation
 
 Documentation provided by GoDoc.
 
-- [revdns][]:
+- [revdns][]: Perform reverse DNS lookups on provided IP-addresses.
 
 [revdns]: http://godoc.org/github.com/mewkiz/cmd/revdns
 
