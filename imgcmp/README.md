@@ -8,6 +8,15 @@ Installation
 
 	$ go get github.com/mewkiz/cmd/imgcmp
 
+Documentation
+-------------
+
+Documentation provided by GoDoc.
+
+- [imgcmp][]:
+
+[imgcmp]: http://godoc.org/github.com/mewkiz/cmd/imgcmp
+
 Usage
 -----
 

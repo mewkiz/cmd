@@ -15,6 +15,15 @@ Installation
 
 	$ go get github.com/mewkiz/cmd/img_date
 
+Documentation
+-------------
+
+Documentation provided by GoDoc.
+
+- [img_date][]:
+
+[img_date]: http://godoc.org/github.com/mewkiz/cmd/img_date
+
 Usage
 -----
 

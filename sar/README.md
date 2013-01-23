@@ -8,6 +8,15 @@ Installation
 
 	$ go get github.com/mewkiz/cmd/sar
 
+Documentation
+-------------
+
+Documentation provided by GoDoc:
+
+- [sar][]:
+
+[sar]: http://godoc.org/github.com/mewkiz/cmd/sar
+
 Usage
 -----
 

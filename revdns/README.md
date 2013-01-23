@@ -8,6 +8,15 @@ Installation
 
 	$ go get github.com/mewkiz/cmd/revdns
 
+Documentation
+-------------
+
+Documentation provided by GoDoc.
+
+- [revdns][]:
+
+[revdns]: http://godoc.org/github.com/mewkiz/cmd/revdns
+
 Usage
 -----
 

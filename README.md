@@ -6,7 +6,7 @@ This project provides commands for commonly performed tasks.
 Documentation
 -------------
 
-Documentation provided by GoDoc:
+Documentation provided by GoDoc.
 
 - [imgcmp][]: Compare two images and displays an error message if they differ.
 - [img_date][]: Rename files based on their embeded date information.

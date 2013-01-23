@@ -6,6 +6,12 @@ Installation:
 
 	$ go get github.com/mewkiz/cmd/sar
 
+Documentation:
+
+Documentation provided by GoDoc.
+
+- sar: http://godoc.org/github.com/mewkiz/cmd/sar
+
 Usage:
 
 	sar [OPTION]... SEARCH REPLACE [FILE]
