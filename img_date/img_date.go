@@ -27,7 +27,6 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Rename files based on their embeded date information.")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Flags:")
-	fmt.Fprintln(os.Stderr)
 	flag.PrintDefaults()
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Examples:")

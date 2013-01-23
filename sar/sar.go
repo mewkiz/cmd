@@ -19,7 +19,6 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: sar [OPTION]... SEARCH REPLACE [FILE]")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Flags:")
-	fmt.Fprintln(os.Stderr)
 	flag.PrintDefaults()
 }
 

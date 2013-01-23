@@ -28,7 +28,6 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Usually the server mode is used at a local host while the client mode is used at a remote host.")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Flags:")
-	fmt.Fprintln(os.Stderr)
 	flag.PrintDefaults()
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Examples:")
