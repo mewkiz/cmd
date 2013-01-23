@@ -23,7 +23,7 @@ Usage:
 
 	img_date [OPTION] [FILE]...
 
-The flags are:
+Flags:
 
 	-f (default=false)
 		Force rename.
