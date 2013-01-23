@@ -10,7 +10,7 @@ Documentation:
 
 Documentation provided by GoDoc.
 
-- imgcmp: http://godoc.org/github.com/mewkiz/cmd/imgcmp
+http://godoc.org/github.com/mewkiz/cmd/imgcmp
 
 Usage:
 

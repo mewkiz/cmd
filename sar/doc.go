@@ -10,7 +10,7 @@ Documentation:
 
 Documentation provided by GoDoc.
 
-- sar: http://godoc.org/github.com/mewkiz/cmd/sar
+http://godoc.org/github.com/mewkiz/cmd/sar
 
 Usage:
 

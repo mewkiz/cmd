@@ -17,7 +17,7 @@ Documentation:
 
 Documentation provided by GoDoc.
 
-- img_date: http://godoc.org/github.com/mewkiz/cmd/img_date
+http://godoc.org/github.com/mewkiz/cmd/img_date
 
 Usage:
 
