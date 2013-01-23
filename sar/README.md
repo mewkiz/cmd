@@ -11,7 +11,7 @@ Installation
 Documentation
 -------------
 
-Documentation provided by GoDoc:
+Documentation provided by GoDoc.
 
 - [sar][]:
 
