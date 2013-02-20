@@ -68,6 +68,10 @@ func main() {
 				continue
 			}
 		}
+		if rename.origPath == rename.String() {
+			// don't rename if target is the same as orig.
+			continue
+		}
 		if flagForce {
 			// Force rename.
 			err := os.Rename(rename.origPath, rename.String())
