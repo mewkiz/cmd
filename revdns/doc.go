@@ -25,4 +25,4 @@ Examples:
 	//    208.80.152.201 = wikipedia-lb.pmtpa.wikimedia.org.
 
 */
-package documentation
+package main

@@ -44,4 +44,4 @@ Examples:
 	//    mv "IMG_2819.JPG" "2012-12-21 00:23:50.jpg"
 
 */
-package documentation
+package main

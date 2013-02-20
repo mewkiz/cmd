@@ -48,4 +48,4 @@ Examples:
 	//    mewkiz
 
 */
-package documentation
+package main

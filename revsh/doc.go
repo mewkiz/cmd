@@ -40,4 +40,4 @@ Examples:
 	revsh example.org:1234
 
 */
-package documentation
+package main

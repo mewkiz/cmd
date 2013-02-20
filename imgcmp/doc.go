@@ -35,4 +35,4 @@ Examples:
 	//    pixel colors differ at x=0, y=0.
 
 */
-package documentation
+package main
