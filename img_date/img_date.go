@@ -185,7 +185,7 @@ func (rename *Rename) SetSuffix(renames []*Rename) {
 func (rename *Rename) IsDuplicate(renames []*Rename) bool {
 	var i int
 	for _, r := range renames {
-		if r.date == rename.date {
+		if r.date == rename.date && path.Ext(r.origPath) == path.Ext(rename.origPath) {
 			i++
 		}
 		if i == 2 {
