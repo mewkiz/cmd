@@ -1,12 +1,14 @@
 package main
 
-import "flag"
-import "fmt"
-import "io"
-import "log"
-import "net"
-import "os"
-import "os/exec"
+import (
+	"flag"
+	"fmt"
+	"io"
+	"log"
+	"net"
+	"os"
+	"os/exec"
+)
 
 // When isServer is true, revsh is in server mode. Otherwise it is in client
 // mode.

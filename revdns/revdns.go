@@ -1,10 +1,12 @@
 package main
 
-import "flag"
-import "fmt"
-import "log"
-import "net"
-import "os"
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net"
+	"os"
+)
 
 func init() {
 	flag.Usage = usage

@@ -1,14 +1,16 @@
 package main
 
-import "flag"
-import "fmt"
-import "io"
-import "log"
-import "os"
-import "path"
-import "regexp"
-import "strings"
-import "time"
+import (
+	"flag"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"path"
+	"regexp"
+	"strings"
+	"time"
+)
 
 // When flagForce is set to true, force rename the files.
 var flagForce bool

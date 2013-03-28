@@ -1,12 +1,14 @@
 package main
 
-import "flag"
-import "fmt"
-import "image"
-import "log"
-import "os"
+import (
+	"flag"
+	"fmt"
+	"image"
+	"log"
+	"os"
 
-import "github.com/mewkiz/pkg/imgutil"
+	"github.com/mewkiz/pkg/imgutil"
+)
 
 func init() {
 	flag.Usage = usage

@@ -1,11 +1,13 @@
 package main
 
-import "flag"
-import "fmt"
-import "io/ioutil"
-import "log"
-import "os"
-import "regexp"
+import (
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
+	"regexp"
+)
 
 // flagInPlace specifies if a file should be edited in place.
 var flagInPlace bool
