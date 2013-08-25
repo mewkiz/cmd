@@ -19,8 +19,8 @@ func usage() {
 
 func main() {
 	flag.Parse()
-	for _, rawIp := range flag.Args() {
-		err := RevDNS(rawIp)
+	for _, rawIP := range flag.Args() {
+		err := RevDNS(rawIP)
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -28,13 +28,13 @@ func main() {
 }
 
 // RevDNS performs a reverse DNS lookup on the provided IP-address.
-func RevDNS(rawIp string) (err error) {
-	names, err := net.LookupAddr(rawIp)
+func RevDNS(rawIP string) (err error) {
+	names, err := net.LookupAddr(rawIP)
 	if err != nil {
 		return err
 	}
 	for _, name := range names {
-		fmt.Printf("%s = %s\n", rawIp, name)
+		fmt.Printf("%s = %s\n", rawIP, name)
 	}
 	return nil
 }
