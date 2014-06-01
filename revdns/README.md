@@ -6,7 +6,7 @@ revdns performs reverse DNS lookups on provided IP-addresses.
 Installation
 ------------
 
-	$ go get github.com/mewkiz/cmd/revdns
+	go get github.com/mewkiz/cmd/revdns
 
 Documentation
 -------------
@@ -27,6 +27,6 @@ Examples
 
 1. Lookup of external IP-address.
 
-	$ revdns 208.80.152.201
-	// output:
-	//    208.80.152.201 = wikipedia-lb.pmtpa.wikimedia.org.
+	revdns 208.80.152.201
+	// Output:
+	// 208.80.152.201 = wikipedia-lb.pmtpa.wikimedia.org.

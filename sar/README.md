@@ -6,7 +6,7 @@ sar uses regexp to search and replace on provided input provided.
 Installation
 ------------
 
-	$ go get github.com/mewkiz/cmd/sar
+	go get github.com/mewkiz/cmd/sar
 
 Documentation
 -------------
@@ -32,24 +32,24 @@ Examples
 
 1. Search and replace multiple lines.
 
-		$ echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "`printf "3\n2\n1"`"
-		// input:
-		//    Testing
-		//    1
-		//    2
-		//    3
+		echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "`printf "3\n2\n1"`"
+		// Input:
+		// Testing
+		// 1
+		// 2
+		// 3
 		//
-		// output:
-		//    Testing
-		//    3
-		//    2
-		//    1
+		// Output:
+		// Testing
+		// 3
+		// 2
+		// 1
 
 2. Use regexp for search and replace.
 
-		$ sar m[a-z]w$ kiz file.txt
-		// input (file.txt):
-		//    mewmew
+		sar m[a-z]w$ kiz file.txt
+		// Input (file.txt):
+		// mewmew
 		//
-		// output:
-		//    mewkiz
+		// Output:
+		// mewkiz

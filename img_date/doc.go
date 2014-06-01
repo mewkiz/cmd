@@ -11,7 +11,7 @@ It performs a basic sanity check on the date, which can be ignored using the
 
 Installation:
 
-	$ go get github.com/mewkiz/cmd/img_date
+	go get github.com/mewkiz/cmd/img_date
 
 Documentation:
 
@@ -34,14 +34,14 @@ Examples:
 
 1. Force rename.
 
-	$ img_date -f IMG_2818.JPG IMG_2819.JPG
+	img_date -f IMG_2818.JPG IMG_2819.JPG
 
 2. Print rename shell script.
 
-	$ img_date IMG_2818.JPG IMG_2819.JPG
-	// output:
-	//    mv "IMG_2818.JPG" "2012-12-21 00:23:16.jpg"
-	//    mv "IMG_2819.JPG" "2012-12-21 00:23:50.jpg"
+	img_date IMG_2818.JPG IMG_2819.JPG
+	// Output:
+	// mv "IMG_2818.JPG" "2012-12-21 00:23:16.jpg"
+	// mv "IMG_2819.JPG" "2012-12-21 00:23:50.jpg"
 
 */
 package main

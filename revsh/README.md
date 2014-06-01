@@ -14,7 +14,7 @@ a remote host.
 Installation
 ------------
 
-	$ go get github.com/mewmew/playground/revsh
+	go get github.com/mewmew/playground/revsh
 
 Documentation
 -------------
