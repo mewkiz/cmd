@@ -1,6 +1,10 @@
 cmd
 ===
 
+[![Build Status](https://travis-ci.org/mewkiz/cmd.svg?branch=master)](https://travis-ci.org/mewkiz/cmd)
+[![Coverage Status](https://img.shields.io/coveralls/mewkiz/cmd.svg)](https://coveralls.io/r/mewkiz/cmd?branch=master)
+[![GoDoc](https://godoc.org/github.com/mewkiz/cmd?status.svg)](https://godoc.org/github.com/mewkiz/cmd)
+
 This project provides commands for commonly performed tasks.
 
 Documentation
