@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"regexp"
+	"strconv"
 )
 
 // flagInPlace specifies if a file should be edited in place.
@@ -28,14 +29,24 @@ func main() {
 	flag.Parse()
 	if flag.NArg() < 2 {
 		flag.Usage()
-		return
-	} else if flag.NArg() == 2 {
+		os.Exit(1)
+	}
+
+	search, err := strconv.Unquote(`"` + flag.Arg(0) + `"`)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	replace, err := strconv.Unquote(`"` + flag.Arg(1) + `"`)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	if flag.NArg() == 2 {
 		// input from: stdin
 		input, err := ioutil.ReadAll(os.Stdin)
 		if err != nil {
 			log.Fatalln(err)
 		}
-		output := sar(string(input), flag.Arg(0), flag.Arg(1))
+		output := sar(string(input), search, replace)
 		fmt.Print(output)
 	} else {
 		// input from: FILE
@@ -43,7 +54,7 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		output := sar(string(input), flag.Arg(0), flag.Arg(1))
+		output := sar(string(input), search, replace)
 		if flagInPlace {
 			fi, err := os.Stat(flag.Arg(2))
 			if err != nil {
