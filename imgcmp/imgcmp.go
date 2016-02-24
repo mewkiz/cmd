@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"image"
+	"image/color"
 	"log"
 	"os"
 
@@ -63,10 +64,17 @@ func cmp(img0, img1 image.Image) (err error) {
 		for y := rect0.Min.Y; y < rect0.Max.Y; y++ {
 			c0 := img0.At(x, y)
 			c1 := img1.At(x, y)
-			if c0 != c1 {
-				return fmt.Errorf("pixel colors differ at x=%d, y=%d.", x, y)
+			if !colorEqual(c0, c1) {
+				return fmt.Errorf("pixel colors differ at x=%d, y=%d; c0=%#v, c1=%#v", x, y, c0, c1)
 			}
 		}
 	}
 	return nil
+}
+
+// colorEqual reports whether the given colours are equal.
+func colorEqual(c0, c1 color.Color) bool {
+	r0, g0, b0, a0 := c0.RGBA()
+	r1, g1, b1, a1 := c1.RGBA()
+	return r0 == r1 && g0 == g1 && b0 == b1 && a0 == a1
 }
