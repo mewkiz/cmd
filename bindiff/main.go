@@ -1,6 +1,6 @@
 // The bindiff tool produces a patch based on the binary difference between the
-// two files OLD and NEW. The patch can be applied to OLD using the binpatch
-// tool to recreate NEW.
+// files OLD and NEW. The patch can be applied to OLD using the binpatch tool to
+// recreate NEW.
 //
 // Usage:
 //
@@ -29,7 +29,7 @@ var dbg = log.New(os.Stderr, term.MagentaBold("bindiff:")+" ", 0)
 
 func usage() {
 	const use = `
-Produce a patch based on the binary difference between the two files OLD and NEW.
+Produce a patch based on the binary difference between the files OLD and NEW.
 
 Usage:
 
