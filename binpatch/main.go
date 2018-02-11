@@ -10,8 +10,6 @@
 //
 //    -o string
 //          output path of the binary file NEW
-//    -reverse
-//          apply the patch in reverse; recreate OLD from new
 package main
 
 import (
@@ -49,17 +47,11 @@ func main() {
 	var (
 		// output specifies the output path of the binary file NEW.
 		output string
-		// reverse specifies whether to apply the patch in reverse; recreate OLD
-		// from NEW.
-		reverse bool
 	)
 	flag.StringVar(&output, "o", "", "output path of the binary file NEW")
-	flag.BoolVar(&reverse, "reverse", false, "apply the patch in reverse; recreate OLD from NEW")
 	flag.Usage = usage
 	flag.Parse()
 	var (
-		oldPath   string
-		newPath   string
 		patchPath string
 		patch     io.Reader
 	)
@@ -80,15 +72,8 @@ func main() {
 		flag.Usage()
 		os.Exit(1)
 	}
-	// Hansle -reverse flag.
-	if reverse {
-		panic("support for -reverse not yet implemented")
-		//oldPath = flag.Arg(0)
-		//newPath = oldPath + ".old"
-	} else {
-		oldPath = flag.Arg(0)
-		newPath = oldPath + ".new"
-	}
+	oldPath := flag.Arg(0)
+	newPath := oldPath + ".new"
 	old, err := os.Open(oldPath)
 	if err != nil {
 		log.Fatalf("unable to open old binary %q; %+v", oldPath, errors.WithStack(err))
@@ -100,16 +85,7 @@ func main() {
 	}
 	defer new.Close()
 	dbg.Println("recreating binary file NEW:", newPath)
-	if err := applyPatch(old, new, patch); err != nil {
+	if err := binarydist.Patch(old, new, patch); err != nil {
 		log.Fatalf("unable to apply patch %q; %+v", patchPath, errors.WithStack(err))
 	}
-}
-
-// applyPatch produces a patch based on the binary difference between OLD and
-// NEW.
-func applyPatch(old io.Reader, new io.Writer, patch io.Reader) error {
-	if err := binarydist.Patch(old, new, patch); err != nil {
-		return errors.WithStack(err)
-	}
-	return nil
 }

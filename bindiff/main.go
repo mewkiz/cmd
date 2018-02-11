@@ -15,7 +15,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io"
 	"log"
 	"os"
 
@@ -80,16 +79,7 @@ func main() {
 	}
 	defer patch.Close()
 	dbg.Println("creating patch:", patchPath)
-	if err := createDiff(old, new, patch); err != nil {
+	if err := binarydist.Diff(old, new, patch); err != nil {
 		log.Fatalf("unable to create patch %q; %+v", patchPath, errors.WithStack(err))
 	}
-}
-
-// createDiff produces a patch based on the binary difference between OLD and
-// NEW.
-func createDiff(old, new io.Reader, patch io.Writer) error {
-	if err := binarydist.Diff(old, new, patch); err != nil {
-		return errors.WithStack(err)
-	}
-	return nil
 }
