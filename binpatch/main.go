@@ -100,7 +100,16 @@ func main() {
 	}
 	defer new.Close()
 	dbg.Println("recreating binary file NEW:", newPath)
-	if err := binarydist.Patch(old, new, patch); err != nil {
+	if err := applyPatch(old, new, patch); err != nil {
 		log.Fatalf("unable to apply patch %q; %+v", patchPath, errors.WithStack(err))
 	}
+}
+
+// applyPatch produces a patch based on the binary difference between OLD and
+// NEW.
+func applyPatch(old io.Reader, new io.Writer, patch io.Reader) error {
+	if err := binarydist.Patch(old, new, patch); err != nil {
+		return errors.WithStack(err)
+	}
+	return nil
 }
