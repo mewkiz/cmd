@@ -45,7 +45,7 @@ echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "3\n2\n1"
 2. Use regexp for search and replace.
 
 ```bash
-sar "m[a-z]w$" "kiz"
+sar "m[a-z]w$" "kiz" file.txt
 // Input (file.txt):
 // mewmew
 //
