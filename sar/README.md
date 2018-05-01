@@ -1,18 +1,14 @@
 # sar
 
-sar uses regexp to search and replace on provided input provided.
+[![GoDoc](http://godoc.org/github.com/mewkiz/cmd/sar?status.svg)](http://godoc.org/github.com/mewkiz/cmd/sar)
+
+The sar tool performs regexp search and replace on the input.
 
 ## Installation
 
 ```bash
-go get github.com/mewkiz/cmd/sar
+go get -u github.com/mewkiz/cmd/sar
 ```
-
-## Documentation
-
-Documentation provided by GoDoc.
-
-- [sar](http://godoc.org/github.com/mewkiz/cmd/sar): Use regexp to search and replace on provided input.
 
 ## Usage
 

@@ -1,16 +1,9 @@
 /*
-
-sar uses regexp to search and replace on provided input provided.
+The sar tool performs regexp search and replace on the input.
 
 Installation:
 
-	go get github.com/mewkiz/cmd/sar
-
-Documentation:
-
-Documentation provided by GoDoc.
-
-http://godoc.org/github.com/mewkiz/cmd/sar
+	go get -u github.com/mewkiz/cmd/sar
 
 Usage:
 
@@ -18,14 +11,13 @@ Usage:
 
 Flags:
 
-	-i (default=false)
-		Edit file in place.
+	-i    Edit file in place.
 
 Examples:
 
 1. Search and replace multiple lines.
 
-	echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "`printf "3\n2\n1"`"
+	echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "3\n2\n1"
 	// Input:
 	// Testing
 	// 1
@@ -47,5 +39,13 @@ Examples:
 	// Output:
 	// mewkiz
 
+3. Use regexp to edit a file in place.
+
+	sar -i "foo([0-9]+)bar" "num=\$1" foo.txt
+	// Input (foo.txt):
+	// foo1234bar
+	//
+	// Output (foo.txt):
+	// num=1234
 */
 package main
