@@ -52,3 +52,14 @@ sar "m[a-z]w$" "kiz" file.txt
 // Output:
 // mewkiz
 ```
+
+3. Use regexp to edit a file in place.
+
+```bash
+sar -i "foo([0-9]+)bar" "num=\$1" foo.txt
+// Input (foo.txt):
+// foo1234bar
+//
+// Output (foo.txt):
+// num=1234
+```
