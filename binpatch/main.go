@@ -74,6 +74,9 @@ func main() {
 	}
 	oldPath := flag.Arg(0)
 	newPath := oldPath + ".new"
+	if len(output) > 0 {
+		newPath = output
+	}
 	old, err := os.Open(oldPath)
 	if err != nil {
 		log.Fatalf("unable to open old binary %q; %+v", oldPath, errors.WithStack(err))

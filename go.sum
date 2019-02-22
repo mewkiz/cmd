@@ -1,0 +1,9 @@
+github.com/kr/binarydist v0.1.0 h1:6kAoLA9FMMnNGSehX0s1PdjbEaACznAv/W219j2uvyo=
+github.com/kr/binarydist v0.1.0/go.mod h1:DY7S//GCoz1BCd0B0EVrinCKAZN3pXe+MDaIZbXQVgM=
+github.com/mewkiz/pkg v0.0.0-20181231041609-5720a0c5985d h1:XZYaJp18ZgsSPTgsELqyfedkxkzLnb6luMFQVn6XXDY=
+github.com/mewkiz/pkg v0.0.0-20181231041609-5720a0c5985d/go.mod h1:bhmdGJSMX5WCIBFmk27tBnUvBJm5WxXmarBV41qvbNI=
+github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
+github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+golang.org/x/image v0.0.0-20190220214146-31aff87c08e9 h1:+vH8qNweCrORN49012OX3h0oWEXO3p+rRnpAGQinddk=
+golang.org/x/image v0.0.0-20190220214146-31aff87c08e9/go.mod h1:kZ7UVZpmo3dzQBMxlp+ypCbDeSB+sBbTgSJuh5dn5js=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
