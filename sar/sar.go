@@ -7,7 +7,6 @@ import (
 	"log"
 	"os"
 	"regexp"
-	"strconv"
 
 	"github.com/pkg/errors"
 )
@@ -34,14 +33,8 @@ func main() {
 		flag.Usage()
 		os.Exit(1)
 	}
-	search, err := strconv.Unquote(`"` + flag.Arg(0) + `"`)
-	if err != nil {
-		log.Fatalf("unable to unquote `%s`: %+v", flag.Arg(1), errors.WithStack(err))
-	}
-	replace, err := strconv.Unquote(`"` + flag.Arg(1) + `"`)
-	if err != nil {
-		log.Fatalf("unable to unquote `%s`: %+v", flag.Arg(1), errors.WithStack(err))
-	}
+	search := flag.Arg(0)
+	replace := flag.Arg(1)
 
 	// Perform regexp search and replace.
 	if flag.NArg() == 2 {
