@@ -36,11 +36,11 @@ func main() {
 	}
 	search, err := strconv.Unquote(`"` + flag.Arg(0) + `"`)
 	if err != nil {
-		log.Fatalf("%+v", errors.WithStack(err))
+		log.Fatalf("unable to unquote `%s`: %+v", flag.Arg(1), errors.WithStack(err))
 	}
 	replace, err := strconv.Unquote(`"` + flag.Arg(1) + `"`)
 	if err != nil {
-		log.Fatalf("%+v", errors.WithStack(err))
+		log.Fatalf("unable to unquote `%s`: %+v", flag.Arg(1), errors.WithStack(err))
 	}
 
 	// Perform regexp search and replace.
