@@ -11,41 +11,10 @@ Usage:
 
 Flags:
 
-	-i    Edit file in place.
-
-Examples:
-
-1. Search and replace multiple lines.
-
-	echo -e "Testing\n1\n2\n3" | sar "1\n2\n3" "3\n2\n1"
-	// Input:
-	// Testing
-	// 1
-	// 2
-	// 3
-	//
-	// Output:
-	// Testing
-	// 3
-	// 2
-	// 1
-
-2. Use regexp for search and replace.
-
-	sar m[a-z]w$ kiz file.txt
-	// Input (file.txt):
-	// mewmew
-	//
-	// Output:
-	// mewkiz
-
-3. Use regexp to edit a file in place.
-
-	sar -i "foo([0-9]+)bar" "num=\$1" foo.txt
-	// Input (foo.txt):
-	// foo1234bar
-	//
-	// Output (foo.txt):
-	// num=1234
+	-fixed-search
+	      interpret SEARCH as a fixed string, not a regular expression
+	-i    edit file in place
+	-unescape-replace
+	      unescape REPLACE string
 */
 package main

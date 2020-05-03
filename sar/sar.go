@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 	"regexp"
+	"strconv"
+	"strings"
 
 	"github.com/pkg/errors"
 )
@@ -23,10 +25,16 @@ Flags:`
 func main() {
 	// Parse command line arguments.
 	var (
-		// inPlace specifies whether to edit the file in place.
+		// Interpret SEARCH as a fixed string, not a regular expression.
+		fixed bool
+		// Edit the file in place.
 		inPlace bool
+		// Unescape REPLACE string.
+		unescape bool
 	)
-	flag.BoolVar(&inPlace, "i", false, "Edit file in place.")
+	flag.BoolVar(&fixed, "fixed-search", false, "interpret SEARCH as a fixed string, not a regular expression")
+	flag.BoolVar(&inPlace, "i", false, "edit file in place")
+	flag.BoolVar(&unescape, "unescape-replace", false, "unescape REPLACE string")
 	flag.Usage = usage
 	flag.Parse()
 	if flag.NArg() < 2 {
@@ -35,29 +43,39 @@ func main() {
 	}
 	search := flag.Arg(0)
 	replace := flag.Arg(1)
+	if unescape {
+		quoted := `"` + replace + `"`
+		s, err := strconv.Unquote(quoted)
+		if err != nil {
+			log.Fatalf("%+v", errors.WithStack(err))
+		}
+		replace = s
+	}
 
 	// Perform regexp search and replace.
-	if flag.NArg() == 2 {
+	switch flag.NArg() {
+	case 2:
 		// input from: stdin
 		input, err := ioutil.ReadAll(os.Stdin)
 		if err != nil {
 			log.Fatalf("%+v", errors.WithStack(err))
 		}
-		output := sar(string(input), search, replace)
+		output := sar(string(input), search, replace, fixed)
 		fmt.Print(output)
-	} else {
+	default:
 		// input from: FILE
-		input, err := ioutil.ReadFile(flag.Arg(2))
+		path := flag.Arg(2)
+		input, err := ioutil.ReadFile(path)
 		if err != nil {
 			log.Fatalf("%+v", errors.WithStack(err))
 		}
-		output := sar(string(input), search, replace)
+		output := sar(string(input), search, replace, fixed)
 		if inPlace {
-			fi, err := os.Stat(flag.Arg(2))
+			fi, err := os.Stat(path)
 			if err != nil {
 				log.Fatalf("%+v", errors.WithStack(err))
 			}
-			err = ioutil.WriteFile(flag.Arg(2), []byte(output), fi.Mode())
+			err = ioutil.WriteFile(path, []byte(output), fi.Mode())
 			if err != nil {
 				log.Fatalf("%+v", errors.WithStack(err))
 			}
@@ -68,7 +86,10 @@ func main() {
 }
 
 // sar returns the result of a regexp search and replace on the given input.
-func sar(input, search, replace string) string {
+func sar(input, search, replace string, fixed bool) string {
+	if fixed {
+		return strings.ReplaceAll(input, search, replace)
+	}
 	regSearch := regexp.MustCompile(search)
 	output := regSearch.ReplaceAllString(input, replace)
 	return output
