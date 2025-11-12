@@ -1,15 +1,20 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"io"
 	"log"
 	"os"
+	"os/exec"
 	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 // When flagForce is set to true, force rename the files.
@@ -108,6 +113,36 @@ func GetRename(origPath string) (rename *Rename, err error) {
 		return nil, err
 	}
 	defer fr.Close()
+
+	// Check if MOV file.
+	if filepath.Ext(strings.ToLower(origPath)) == ".mov" {
+		cmd := exec.Command("ffprobe", "-i", origPath)
+		buf := &bytes.Buffer{}
+		cmd.Stderr = buf
+		_, err := cmd.Output()
+		if err != nil {
+			return nil, errors.WithStack(err)
+		}
+		output := buf.String()
+		// Metadata:
+		//   creation_time   : 2025-11-05T11:10:54.000000Z
+		for _, part := range strings.Split(output, "\n") {
+			s := strings.TrimSpace(part)
+			if strings.Contains(s, "creation_time") {
+				rawDate := s[len("creation_time   : "):]
+				const layout = "2006-01-02T15:04:05.999999Z07:00"
+				date, err := time.Parse(layout, rawDate)
+				if err != nil {
+					return nil, errors.WithStack(err)
+				}
+				rename := &Rename{
+					origPath: origPath,
+					date:     date,
+				}
+				return rename, nil
+			}
+		}
+	}
 
 	// Read and parse blocks.
 	block := make([]byte, 4096)

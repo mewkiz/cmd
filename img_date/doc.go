@@ -1,5 +1,4 @@
 /*
-
 img_date renames files based on their embeded date information.
 
 The new path will use the same dir and extension as the old path, but the file
@@ -42,6 +41,5 @@ Examples:
 	// Output:
 	// mv "IMG_2818.JPG" "2012-12-21 00:23:16.jpg"
 	// mv "IMG_2819.JPG" "2012-12-21 00:23:50.jpg"
-
 */
 package main
